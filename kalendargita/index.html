@@ -59,12 +59,6 @@
   </div>
 
 <script>
-/*
-  Client-side password check using SHA-256.
-  - StoredHash is SHA-256("190199")
-  - On correct entry, overlay hides and main content shows.
-  - Value is not reversible from the hash alone (but client-side source can be inspected).
-*/
 
 const storedHash = "05154ed6409dfef1eea705521a0eaa57e78add451b3d29c4116ee035cd78c9f1";
 
@@ -118,9 +112,6 @@ async function tryUnlock(typed){
 
 btnUnlock.addEventListener("click", ()=> tryUnlock(pwInput.value));
 pwInput.addEventListener("keydown", (e)=> { if(e.key === "Enter") tryUnlock(pwInput.value); });
-
-// demo helper to auto-fill (you can remove)
-btnDemo.addEventListener("click", ()=> { pwInput.value = "190199"; tryUnlock("190199"); });
 
 // on load, check session storage
 if(sessionStorage.getItem(storageKey) === "1"){
